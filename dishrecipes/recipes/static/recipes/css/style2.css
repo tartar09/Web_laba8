@@ -1,0 +1,130 @@
+html, body {
+	font-family: Tahoma, Geneva, serif;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	color: #444;
+}
+
+h1 {
+	font-family: Tahoma, Geneva, serif;
+    color: black;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-size: 38px;
+    margin: 10px 5px;
+	padding-top: 30px;
+}
+
+h2 {
+	margin-top: 5px;
+	font-variant: all-small-caps;
+    font-size: xx-large;
+}
+
+li {
+  width: 500px;
+}
+
+a {
+	color: #c70a0a;
+	text-decoration: none;
+}
+
+a:link {
+  color: #c70a0a;
+}
+
+a:hover {
+  border-bottom: 1px solid;
+}
+
+a:active {
+  color: #480400;
+}
+
+nav {
+	position: fixed;
+    background: #242424;
+    top: 0;
+    padding: 10px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: #ffffff;
+}
+
+nav a:hover {
+	color: #d84242;
+	border-bottom: none;
+}
+
+nav div {
+	display: flex;
+    justify-content: space-evenly;
+	font-weight: bold;
+    font-variant: all-small-caps;
+	font-size: large;
+}
+
+
+
+
+.left-menu {
+    float: left;
+    width: 100px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background-color: #d5d5d5;
+	height: 100%;
+	width: 170px;
+	padding-left: 20px;
+	padding-top: 80px;
+}
+
+/* Стили для списка категорий */
+.left-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-variant: all-small-caps;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.left-menu ul li {
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+
+/* Стили для основного контента */
+.main-content {
+    margin-left: 220px; /* Ширина левого меню + отступ */
+}
+
+/* Общие стили для списка постов */
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.post-list li {
+    margin-bottom: 10px;
+	width: 95%;
+	border: 2px solid #dbd4d4;
+    padding: 10px;
+    border-radius: 10px;
+}
