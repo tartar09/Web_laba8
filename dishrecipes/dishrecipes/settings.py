@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'recipes.apps.RecipesConfig',
+    "view_breadcrumbs",
 ]
 
 MIDDLEWARE = [

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.template.defaultfilters import slugify
 
-from recipes.models import Recipes
+from recipes.models import Recipes, Category, TagPost
 
 menu = [{'title': "Поиск рецептов", 'url_name': 'find'},
         {'title': "Войти", 'url_name': 'login'},
@@ -23,18 +23,45 @@ def index(request):
         'title': 'Главная страница',
         'menu': menu,
         'posts': posts,
+        'cat_selected': 0,
     }
     return render(request, 'recipes/index.html',
                   context=data)
 
 
-def show_category(request, cat_id):
+def show_category(request, cat_slug):
+    category = get_object_or_404(Category,
+                                 slug=cat_slug)
+    posts = Recipes.published.filter(cat_id=category.pk)
     data = {
-        'title': 'Поиск рецептов',
+        'title': f'Категория {category.name}',
         'menu': menu,
-        'posts': Recipes.published.all(),
-        'cat_selected': cat_id,
+        'posts': posts,
+        'cat_selected': category.pk,
     }
+    return render(request, 'recipes/cats.html',
+                  context=data)
+
+
+def show_tag_postlist(request, tag_slug):
+    tag = get_object_or_404(TagPost, slug=tag_slug)
+    posts = tag.tags.filter(is_published=Recipes.Status.PUBLISHED)
+    data = {
+        'title': f'Тег: {tag.tag}',
+        'menu': menu,
+        'posts': posts,
+        'cat_selected': None,
+    }
+    return render(request, 'recipes/index.html',
+                  context=data)
+
+
+def find(request):
+    posts = Recipes.published.all()
+    data = {'title': 'Поиск рецептов',
+            'menu': menu,
+            'posts': posts,
+            }
     return render(request, 'recipes/cats.html',
                   context=data)
 
@@ -70,16 +97,6 @@ def add_recipe(request):
 def about(request):
     return render(request, 'recipes/about.html',
                   {'title': 'О сайте', 'menu': menu})
-
-
-def find(request):
-    posts = Recipes.published.all()
-    data = {'title': 'Поиск рецептов',
-            'menu': menu,
-            'posts': posts,
-            }
-    return render(request, 'recipes/find.html',
-                  context=data)
 
 
 def login(request):

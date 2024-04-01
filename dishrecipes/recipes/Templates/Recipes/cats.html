@@ -4,27 +4,28 @@
 <h1>{{title}}</h1>
 <div class="left-menu">
     <ul>
-    {% if cat_selected == 0 or cat_selected is None %}
-    <li class="selected">Все категории</li>
-    {% else %}
-    <li><a href="{% url 'home' %}">Все категории</a></li>
-    {% endif %}
-    {% show_categories cat_selected %}
-</ul>
+        {% if cat_selected == 0 or cat_selected is None %}
+        <li class="selected">Все категории</li>
+        {% else %}
+        <li><a href="{% url 'find' %}">Все категории</a></li>
+        {% endif %}
+        {% show_categories cat_selected %}
+        {% show_all_tags %}
+    </ul>
 </div>
 
-<div class = "main-content">
+<div class="main-content">
     <ul class="post-list">
-    {% for p in posts %}
-    <li><h2>{{p.title}}</h2>
-        {% autoescape off %}
-        {{p.content|linebreaks|truncatewords:50}}
-        {% endautoescape %}
-        <p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать
-            пост</a></p>
-    </li>
-    {% endfor %}
-</ul>
+        {% for p in posts %}
+        <li><h2>{{p.title}}</h2>
+            {% autoescape off %}
+            {{p.content|linebreaks|truncatewords:50}}
+            {% endautoescape %}
+            <p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать
+                пост</a></p>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
 

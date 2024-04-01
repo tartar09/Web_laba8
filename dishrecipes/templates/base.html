@@ -5,13 +5,12 @@
 <html>
 <head>
     <title>{{title}}</title>
-    <link type="text/css" href="{% static 'recipes/css/style2.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'recipes/css/style2.css' %}" rel="stylesheet"/>
 </head>
 <body>
 {% include 'includes/nav.html' %}
 {{p.content|linebreaks|truncatewords:50}}
 {% block content %} {% endblock %}
-<!--{% include 'includes/nav.html' %}-->
 {% endautoescape %}
 </body>
 </html>

@@ -76,11 +76,8 @@ nav div {
 }
 
 
-
-
 .left-menu {
     float: left;
-    width: 100px;
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -97,14 +94,16 @@ nav div {
     padding: 0;
     margin: 0;
     font-variant: all-small-caps;
-    font-size: larger;
+    font-size: 19px;
     font-weight: bold;
 }
 
 .left-menu ul li {
     margin-bottom: 10px;
     margin-left: 15px;
+    width: 120px
 }
+
 
 
 /* Стили для основного контента */
@@ -119,12 +118,23 @@ nav div {
     margin: 0;
 }
 
-
-
 .post-list li {
     margin-bottom: 10px;
 	width: 95%;
 	border: 2px solid #dbd4d4;
     padding: 10px;
     border-radius: 10px;
+}
+
+
+.bs {
+    margin-top: 50px;
+}
+
+.bs li {
+    display: inline;
+    border: 1px solid #6c3737;
+    border-radius: 7px;
+    margin-right: 5px;
+    padding: 4px;
 }
