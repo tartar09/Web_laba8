@@ -5,6 +5,7 @@ from django.urls import reverse
 
 # Create your models here.
 
+
 class PublishedModel(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(is_published=Recipes.Status.PUBLISHED)
@@ -13,7 +14,7 @@ class PublishedModel(models.Manager):
 def translit_to_eng(s: str) -> str:
     d = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д':
         'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и':
-        'i', 'к': 'k',
+             'i', 'к': 'k',
          'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п':
              'p', 'р': 'r',
          'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х':
@@ -45,7 +46,9 @@ class Recipes(models.Model):
     characteristics = models.OneToOneField('Characteristics',
                                            on_delete=models.SET_NULL, null=True, blank=True,
                                            related_name='characterictic', verbose_name="Характеристики")
-
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/",
+                              default=None, blank=True, null=True,
+                              verbose_name="Фото")
     objects = models.Manager()
     published = PublishedModel()
 
@@ -106,3 +109,7 @@ class Characteristics(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class UploadFiles(models.Model):
+    file = models.FileField(upload_to='uploads_model')

@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('find/', views.find, name='find'),
     path('archive/<year4:year>/', views.archive, name='archive'),
-    path('add/', views.add_recipe, name='add'),
+    path('add/', views.addpage, name='add'),
     path('login/', views.login, name='login'),
     path('about/', views.about, name='about'),
     path('post/<slug:post_slug>/', views.show_post,
@@ -18,3 +18,4 @@ urlpatterns = [
          views.show_tag_postlist, name='tag'),
 
 ]
+

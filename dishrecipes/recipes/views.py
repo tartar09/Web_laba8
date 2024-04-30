@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.template.defaultfilters import slugify
+import uuid
 
-from recipes.models import Recipes, Category, TagPost
+from recipes.forms import AddPostForm, UploadFileForm
+from recipes.models import Recipes, Category, TagPost, UploadFiles
 
 menu = [{'title': "Поиск рецептов", 'url_name': 'find'},
         {'title': "Войти", 'url_name': 'login'},
@@ -85,18 +87,33 @@ def show_post(request, post_slug):
                   context=data)
 
 
+def addpage(request):
+    if request.method == 'POST':
+        form = AddPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = AddPostForm()
+    return render(request, 'recipes/addpage.html',
+                  {'menu': menu, 'title': 'Добавление статьи', 'form':
+                      form})
+
+
 def page_not_found(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена</h1>')
 
 
-def add_recipe(request):
-    return render(request, 'recipes/add.html',
-                  {'title': 'Добавить свой рецепт', 'menu': menu})
-
-
 def about(request):
+    if request.method == "POST":
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            fp = UploadFiles(file=form.cleaned_data['file'])
+            fp.save()
+    else:
+        form = UploadFileForm()
     return render(request, 'recipes/about.html',
-                  {'title': 'О сайте', 'menu': menu})
+                  {'title': 'О сайте', 'menu': menu, 'form': form})
 
 
 def login(request):

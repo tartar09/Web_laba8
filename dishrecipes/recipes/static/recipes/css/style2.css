@@ -138,3 +138,20 @@ nav div {
     margin-right: 5px;
     padding: 4px;
 }
+
+img {
+    width: 150px; /* Ширина */
+    height: 130px;
+    float: left; /* Выстраиваем элементы по горизонтали */
+    margin: 0 0 0 1%; /* Отступ слева */
+    padding: 2%; /* Поля */
+}
+
+.img-post {
+    width: 30%;
+    margin: 0 0 0 3.5%;
+    background: #f0f0f0;
+    border-radius: 5px;
+    padding: 2%;
+    height: auto;
+}

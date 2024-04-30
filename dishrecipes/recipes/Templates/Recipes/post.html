@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>{{post.title}}</h1>
+{% if post.photo %}
+<img class="img-post" src="{{post.photo.url}}"></p>
+{% endif %}
 {% block breadcrumbs %}
 {% with post.tags.all as tags %}
 {% if tags %}
-    <ul class="bs">
-        {% for t in tags %}
-        <li><a href="{{t.get_absolute_url}}">{{t.tag}}</a></li>
-        {% endfor %}
-    </ul>
+<ul class="bs">
+    {% for t in tags %}
+    <li><a href="{{t.get_absolute_url}}">{{t.tag}}</a></li>
+    {% endfor %}
+</ul>
 {% endif %}
 {% endwith %}
 {% endblock %}
