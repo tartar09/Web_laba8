@@ -12,5 +12,21 @@
         {% show_categories cat_selected %}
     </ul>
 </div>
+
 {% endblock %}
 
+{% block navigation %}
+<div class="list-pages">
+    <ul>
+        {% for p in paginator.page_range %}
+        {% if page_obj.number == p %}
+        <li>{{p}}</li>
+        {% else %}
+        <li>
+            <a href="?page={{p}}">{{p}}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

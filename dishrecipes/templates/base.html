@@ -11,6 +11,8 @@
 {% include 'includes/nav.html' %}
 {{p.content|linebreaks|truncatewords:50}}
 {% block content %} {% endblock %}
+{% block navigation %}
+{% endblock %}
 {% endautoescape %}
 </body>
 </html>

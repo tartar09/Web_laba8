@@ -155,3 +155,36 @@ img {
     padding: 2%;
     height: auto;
 }
+
+/*.list-pages {
+    margin: 0 0 0 200px;
+}
+
+.list-pages ul{
+    display: flex;
+}*/
+
+.list-pages {
+    margin: 0 0 0 200px;
+}
+
+.list-pages ul {
+    display: flex;
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+}
+
+.list-pages li {
+    margin: 0 5px; /* Добавляем отступы между квадратами */
+}
+
+.list-pages li, .list-pages a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Размер квадрата */
+    height: 30px; /* Размер квадрата */
+    font-weight: bold; /* Жирный шрифт */
+    border: 1px solid #ccc; /* Граница квадрата */
+    text-decoration: none; /* Убираем подчеркивание ссылок */
+}
