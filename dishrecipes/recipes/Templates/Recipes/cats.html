@@ -24,6 +24,7 @@
             {% autoescape off %}
             {{p.content|linebreaks|truncatewords:50}}
             {% endautoescape %}
+            <p class="first">Категория: {{p.cat.name}} | автор: {{p.author.username|default:"неизвестен"}}</p>
             <p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать
                 пост</a></p>
         </li>

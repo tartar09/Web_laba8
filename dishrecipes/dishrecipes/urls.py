@@ -10,6 +10,8 @@ handler404 = page_not_found
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('recipes/', include('recipes.urls')),
+    path('users/', include('users.urls',
+                           namespace="users")),
 ]
 
 if settings.DEBUG:

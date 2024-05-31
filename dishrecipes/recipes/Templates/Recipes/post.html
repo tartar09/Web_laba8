@@ -14,6 +14,11 @@
 </ul>
 {% endif %}
 {% endwith %}
+
+{% if perms.recipes.change_recipes %}
+<p ><a href="{% url 'edit_page' post.pk %}">Редактировать</a></p>
+{% endif %}
+
 {% endblock %}
 {{post.content|linebreaks}}
 {% endblock %}

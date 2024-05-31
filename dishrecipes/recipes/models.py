@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.urls import reverse
@@ -49,6 +50,10 @@ class Recipes(models.Model):
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/",
                               default=None, blank=True, null=True,
                               verbose_name="Фото")
+    author = models.ForeignKey(get_user_model(),
+                               on_delete=models.SET_NULL, related_name='posts',
+                               null=True, default=None)
+
     objects = models.Manager()
     published = PublishedModel()
 

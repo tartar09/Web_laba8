@@ -68,11 +68,16 @@ nav a:hover {
 }
 
 nav div {
-	display: flex;
-    justify-content: space-evenly;
 	font-weight: bold;
     font-variant: all-small-caps;
 	font-size: large;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    /* justify-content: space-between; */
+    margin: 0;
 }
 
 

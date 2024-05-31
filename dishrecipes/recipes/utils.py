@@ -1,8 +1,10 @@
-menu = [{'title': "Поиск рецептов", 'url_name': 'find'},
-        {'title': "Войти", 'url_name': 'login'},
-        {'title': "Добавить свой рецепт", 'url_name': 'add'},
-        {'title': "О сайте", 'url_name': 'about'},
-        ]
+menu = [
+    {'title': "Главная", 'url_name': 'home'},
+    {'title': "Поиск рецептов", 'url_name': 'find'},
+    # {'title': "Войти", 'url_name': 'login'},
+    {'title': "Добавить свой рецепт", 'url_name': 'add'},
+    {'title': "О сайте", 'url_name': 'about'},
+]
 
 
 class DataMixin:

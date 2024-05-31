@@ -2,13 +2,36 @@
 {% load static %}
 {% load recipes_tags %}
 {% autoescape off %}
+{% get_menu as menu %}
 <html>
 <head>
     <title>{{title}}</title>
     <link type="text/css" href="{% static 'recipes/css/style2.css' %}" rel="stylesheet"/>
 </head>
 <body>
-{% include 'includes/nav.html' %}
+<!--{% include 'includes/nav.html' %}-->
+{% block mainmenu %}
+<nav>
+    <div class="header">
+        <ul>
+            <!--            <li><a href="{% url 'home' %}">-->
+            <!--                <div></div>-->
+            </a></li>
+            {% for m in mainmenu %}
+            <li><a href="{% url m.url_name %}">{{m.title}}</a></li>
+            {% endfor %}
+            {% if user.is_authenticated %}
+            <li> <a href="{% url 'users:profile'%}">{{user.username}}</a> | <a href="{% url 'users:logout' %}">Выйти</a></li>
+            {% else %}
+            <li><a href="{% url 'users:login' %}">Войти</a> | <a href="{% url 'users:register'%}">Регистрация</a>
+            </li>
+            {% endif %}
+            <!--            <li><a href="{% url 'users:login' %}">Войти</a></li>-->
+        </ul>
+        <!--        <div></div>-->
+    </div>
+</nav>
+{% endblock mainmenu %}
 {{p.content|linebreaks|truncatewords:50}}
 {% block content %} {% endblock %}
 {% block navigation %}

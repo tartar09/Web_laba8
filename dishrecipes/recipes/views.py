@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.template.defaultfilters import slugify
@@ -80,7 +82,8 @@ class ShowPost(DataMixin, DetailView):
                                  slug=self.kwargs[self.slug_url_kwarg])
 
 
-class AddPage(DataMixin, CreateView):
+class AddPage(LoginRequiredMixin, DataMixin, CreateView):
+    # permission_required = 'recipes.add_recipes'
     model = Recipes
     fields = ['title', 'slug', 'content', 'is_published',
               'cat', 'tags', 'photo']
@@ -90,8 +93,14 @@ class AddPage(DataMixin, CreateView):
     success_url = reverse_lazy('home')
     title_page = 'Добавление статьи'
 
+    def form_valid(self, form):
+        w = form.save(commit=False)
+        w.author = self.request.user
+        return super().form_valid(form)
+
 
 class UpdatePage(DataMixin, UpdateView):
+    # permission_required = 'recipes.change_recipes'
     model = Recipes
     fields = ['title', 'content', 'photo', 'is_published', 'cat']
     template_name = 'recipes/addpage.html'
@@ -113,24 +122,28 @@ def page_not_found(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена</h1>')
 
 
-# def about(request):
-#     if request.method == "POST":
-#         form = UploadFileForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             fp = UploadFiles(file=form.cleaned_data['file'])
-#             fp.save()
-#     else:
-#         form = UploadFileForm()
-#     return render(request, 'recipes/about.html',
-#                   {'title': 'О сайте', 'menu': menu, 'form': form})
+# @permission_required(perm='recipes.view_recipes', raise_exception=True)
 def about(request):
-    contact_list = Recipes.published.all()
-    paginator = Paginator(contact_list, 4)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    if request.method == "POST":
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            fp = UploadFiles(file=form.cleaned_data['file'])
+            fp.save()
+    else:
+        form = UploadFileForm()
+    return render(request, 'recipes/about.html',
+                  {'title': 'О сайте', 'menu': menu, 'form': form})
 
-    return render(request, 'recipes/about.html', {'page_obj':
-                                                      page_obj, 'title': 'О сайте'})
+
+# @login_required
+# def about(request):
+#     contact_list = Recipes.published.all()
+#     paginator = Paginator(contact_list, 4)
+#     page_number = request.GET.get('page')
+#     page_obj = paginator.get_page(page_number)
+#
+#     return render(request, 'recipes/about.html', {'page_obj':
+#                                                       page_obj, 'title': 'О сайте'})
 
 
 def login(request):
