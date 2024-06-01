@@ -193,3 +193,295 @@ img {
     border: 1px solid #ccc; /* Граница квадрата */
     text-decoration: none; /* Убираем подчеркивание ссылок */
 }
+
+
+/* Стили для формы с классом .auth-form */
+.auth-form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовка внутри формы */
+.auth-form h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Стили для каждого поля формы */
+.auth-form p {
+    margin: 15px 0;
+}
+
+.auth-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"],
+.auth-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Стили для ошибок формы */
+.auth-form div.errors {
+    color: red;
+    margin-top: 5px;
+}
+
+/* Стили для ссылки "Забыли пароль?" */
+.auth-form a {
+    color: #741616;
+    text-decoration: none;
+}
+
+.auth-form a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для кнопки отправки формы */
+.auth-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #942929;
+    border: none;
+    border-radius: 5px; 
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.auth-form button[type="submit"]:hover {
+    background-color: #ba2e2e;
+}
+
+/* Скрытое поле для "next" */
+.auth-form input[type="hidden"] {
+    display: none;
+}
+
+
+/* Стили для формы с классом .profile-form */
+.profile-form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовка */
+.profile-form h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Стили для изображения профиля */
+.profile-form img {
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* Стили для каждого поля формы */
+.profile-form p {
+    margin: 15px 0;
+}
+
+.profile-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.profile-form input[type="text"],
+.profile-form input[type="password"],
+.profile-form input[type="email"],
+.profile-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Стили для ошибок формы */
+.profile-form div.errors {
+    color: red;
+    margin-top: 5px;
+}
+
+/* Стили для кнопки отправки формы */
+.profile-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #942929;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.profile-form button[type="submit"]:hover {
+    background-color: #ba2e2e;
+}
+
+/* Стили для ссылки "Сменить пароль" */
+.profile-form a {
+    color: #741616;
+    text-decoration: none;
+}
+
+.profile-form a:hover {
+    text-decoration: underline;
+}
+
+
+/* Стили для сообщения с классом .success-message */
+.success-message {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #4CAF50;
+    border-radius: 10px;
+    background-color: #e7f7e7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Стили для заголовка */
+.success-message h1 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Стили для текста сообщения */
+.success-message p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Стили для ссылки "Вернуться в профиль" */
+.success-message a {
+    color: #a82323;
+    text-decoration: none;
+}
+
+.success-message a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для сообщения с классом .reset-password-message */
+.reset-password-message {
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #007BFF;
+    border-radius: 10px;
+    background-color: #f0f8ff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Стили для заголовка */
+.reset-password-message h1 {
+    font-size: 24px;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+/* Стили для текста сообщения */
+.reset-password-message p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+/* Стили для формы с классом .article-form */
+.article-form {
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовка */
+.article-form h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Стили для меток и полей формы */
+.article-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.article-form input[type="text"], 
+.article-form input[type="file"], 
+.article-form select, 
+.article-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.article-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* Стили для кнопки отправки формы */
+.article-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #942929;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.article-form button[type="submit"]:hover {
+    background-color: #ba2e2e;
+}
+
+/* Стили для ошибок формы */
+.article-form .errors {
+    color: red;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
